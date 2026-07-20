@@ -1,0 +1,648 @@
+/* Checkout and Booking Style Sheet */
+:root {
+    --primary-color: #1d4ed8;
+    --primary-hover: #1e40af;
+    --accent-color: #0ea5e9;
+    --border-radius-lg: 20px;
+    --border-radius-md: 12px;
+    --border-radius-sm: 8px;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: var(--font-body);
+}
+
+.checkout-content {
+    max-width: 1280px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    animation: fadeInUp 0.5s ease both;
+}
+
+.checkout-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .checkout-container {
+        grid-template-columns: 1fr 400px;
+    }
+}
+
+.back-link-container {
+    margin-bottom: 1.5rem;
+}
+
+.back-to-dashboard-link {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-fast);
+}
+
+.back-to-dashboard-link:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+    transform: translateX(-3px);
+}
+
+/* Card layout */
+.checkout-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: 2rem;
+    box-shadow: var(--shadow-card);
+    margin-bottom: 1.5rem;
+    transition: var(--transition-smooth);
+}
+
+.card-section-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Selected Ticket Overview */
+.checkout-ticket-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.ticket-summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticket-type-badge {
+    background-color: rgba(14, 165, 233, 0.1);
+    color: var(--accent-color);
+    padding: 0.35rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.ticket-summary-date {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+/* Passenger Forms styling */
+.passenger-block {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--recent-item-bg);
+}
+
+.passenger-block-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .form-row {
+        flex-direction: row;
+    }
+}
+
+.flex-1 { flex: 1; }
+.flex-2 { flex: 2; }
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.form-group input, .form-group select {
+    height: 42px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-input);
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.form-subsection-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-top: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.insurance-section {
+    background-color: rgba(16, 185, 129, 0.05);
+    border: 1px dashed var(--success-color);
+    border-radius: var(--border-radius-sm);
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-desc {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+/* Sidebar Fare Details */
+.summary-card {
+    position: sticky;
+    top: 90px;
+}
+
+.fare-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.fare-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.fare-row.discount-row {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.fare-divider {
+    height: 1px;
+    border-top: 1px dashed var(--border-color);
+    margin: 1.25rem 0;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+}
+
+.total-amount {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+}
+
+/* Coupon block */
+.coupon-section {
+    margin-top: 1.5rem;
+}
+
+.coupon-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.coupon-input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.coupon-input-group input {
+    flex: 1;
+    height: 38px;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-input);
+    color: var(--text-main);
+    padding: 0 10px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    outline: none;
+    text-transform: uppercase;
+}
+
+.coupon-input-group input:focus {
+    border-color: var(--border-focus);
+}
+
+.coupon-input-group button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0 1rem;
+    border-radius: var(--border-radius-sm);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.coupon-input-group button:hover {
+    background-color: var(--primary-color);
+}
+
+.coupon-feedback {
+    font-size: 0.8rem;
+    margin-top: 0.35rem;
+    font-weight: 500;
+}
+
+.coupon-feedback.success { color: var(--success-color); }
+.coupon-feedback.error { color: var(--error-color); }
+
+.checkout-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.checkout-submit-btn {
+    width: 100%;
+    height: 48px;
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1.05rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: var(--transition-fast);
+}
+
+.checkout-submit-btn:hover {
+    background-color: #059669;
+    transform: translateY(-1px);
+}
+
+.guarantee-text {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+}
+
+/* PAYMENT MODAL OVERLAY */
+.payment-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.payment-modal-overlay.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.payment-card-panel, .payment-processing-panel, .payment-success-panel {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: var(--transition-smooth);
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-light);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-modal-btn:hover {
+    color: var(--text-main);
+}
+
+.payment-panel-title {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.payment-panel-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Payment Methods tabs */
+.payment-methods {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.method-tab {
+    flex: 1;
+    text-align: center;
+    padding: 0.75rem 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: var(--transition-fast);
+}
+
+.method-tab.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.input-icon-wrapper {
+    position: relative;
+}
+
+.input-icon-wrapper input {
+    width: 100%;
+}
+
+.card-brand-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #1a1f71; /* Visa color */
+}
+
+.pay-submit-btn {
+    width: 100%;
+    height: 46px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: var(--transition-fast);
+}
+
+.pay-submit-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Processing View */
+.payment-processing-panel {
+    text-align: center;
+}
+
+.spinner-container {
+    margin-bottom: 1.5rem;
+}
+
+.processing-spinner {
+    font-size: 3rem;
+    color: var(--accent-color);
+}
+
+.payment-processing-panel h4 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.payment-processing-panel p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* Success View */
+.payment-success-panel {
+    text-align: center;
+}
+
+.success-icon-wrapper {
+    margin-bottom: 1.25rem;
+}
+
+.success-check-icon {
+    font-size: 4rem;
+    color: var(--success-color);
+    animation: scaleCheck 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes scaleCheck {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+.payment-success-panel h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.success-message {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.booking-receipt-box {
+    background-color: var(--recent-item-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    padding: 1.25rem;
+    margin-bottom: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.receipt-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.receipt-row strong {
+    color: var(--text-main);
+}
+
+.receipt-status-success {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success-color);
+    font-weight: 700;
+    padding: 0.1rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.back-home-action-btn {
+    width: 100%;
+    height: 46px;
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.back-home-action-btn:hover {
+    background-color: #059669;
+}
